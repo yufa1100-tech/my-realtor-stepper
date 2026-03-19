@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моя сделка - Степпер</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stepper-container">
+    <div class="stepper-wrapper">
+      <div class="step active">
+        <div class="step-circle">1</div>
+        <div class="step-label">Заявка</div>
+      </div>
+      <div class="line active"></div> 
+      
+      <div class="step">
+        <div class="step-circle">2</div>
+        <div class="step-label">Объект</div>
+      </div>
+      <div class="line"></div> 
+      
+      <div class="step">
+        <div class="step-circle">3</div>
+        <div class="step-label">Сделка</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-next" onclick="nextStep()">Следующий этап</button>
+
+  <script>
+    function nextStep() {
+      let inactiveLine = document.querySelector('.line:not(.active)');
+      let inactiveStep = document.querySelector('.step:not(.active)');
+      if (inactiveStep) {
+        if (inactiveLine) { inactiveLine.classList.add('active'); }
+        inactiveStep.classList.add('active');
+      } else {
+        alert('Поздравляю! Сделка успешно завершена 🎉');
+      }
+    }
+  </script>
+
+</body>
+</html>
